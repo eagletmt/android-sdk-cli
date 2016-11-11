@@ -1,0 +1,6 @@
+[package]
+name = "android-sdk-cli"
+version = "0.1.0"
+authors = ["Kohei Suzuki <eagletmt@gmail.com>"]
+
+[dependencies]
