@@ -4,3 +4,9 @@ version = "0.1.0"
 authors = ["Kohei Suzuki <eagletmt@gmail.com>"]
 
 [dependencies]
+hyper = "0.9"
+xml-rs = "0.3"
+
+[lib]
+name = "android_sdk_cli"
+path = "src/lib.rs"
