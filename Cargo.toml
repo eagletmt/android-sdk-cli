@@ -6,6 +6,8 @@ authors = ["Kohei Suzuki <eagletmt@gmail.com>"]
 [dependencies]
 hyper = "0.9"
 xml-rs = "0.3"
+tempfile = "2.1"
+rust-crypto = "0.2"
 
 [lib]
 name = "android_sdk_cli"

@@ -1,6 +1,7 @@
 extern crate android_sdk_cli;
 extern crate hyper;
 
+use std::path::Path;
 use android_sdk_cli::xmlhelper;
 use android_sdk_cli::repository11;
 
@@ -22,7 +23,13 @@ fn main() {
     for build_tool in sdk_repository.build_tools {
         println!("{:?}", build_tool);
     }
-    for platform_tool in sdk_repository.platform_tools {
+    for platform_tool in &sdk_repository.platform_tools {
         println!("{:?}", platform_tool);
     }
+
+    let downloader = android_sdk_cli::Downloader::new(client);
+
+    // TODO: Install selected archive
+    let archive = &sdk_repository.platform_tools[0].archives[0];
+    downloader.download(&archive.absolute_url(), &archive.checksum, Path::new("/tmp/android-sdk-cli"));
 }

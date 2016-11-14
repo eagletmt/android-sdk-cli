@@ -1,6 +1,7 @@
 use std::collections::HashMap;
 use xmlhelper::Event;
 
+pub static XML_URL_BASE: &'static str = "https://dl.google.com/android/repository";
 pub static XML_URL: &'static str = "https://dl.google.com/android/repository/repository-11.xml";
 
 #[derive(Debug)]
@@ -34,6 +35,12 @@ pub struct Archive {
     pub url: String,
     pub host_os: Option<OsType>,
     pub host_bits: Option<BitSize>,
+}
+
+impl Archive {
+    pub fn absolute_url(&self) -> String {
+        return format!("{}/{}", XML_URL_BASE, self.url);
+    }
 }
 
 #[derive(Debug)]
